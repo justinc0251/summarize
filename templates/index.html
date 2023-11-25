@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Summarizer</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
+  </head>
+  <body>
+    <h1>Text Summarizer</h1>
+    <form method="POST">
+      <div class="settings-container">
+        <div class="sentence">
+          <div class="sentence_info">
+            <label for="sentence_count">Sentence Length:</label>
+            <span id="sentence_count_display">5</span>
+          </div>
+          <input
+            type="range"
+            id="sentence_count"
+            name="sentence_count"
+            min="1"
+            max="10"
+            value="5"
+            class="slider"
+          />
+        </div>
+        <input class="submit-button" type="submit" value="Summarize" />
+      </div>
+      <div class="container">
+        <div class="input_container">
+          <div class="column">
+            <h2 class="summarize-type">Original Text</h2>
+            <textarea
+              name="original_text"
+              rows="10"
+              cols="40"
+              placeholder="Paste your text here..."
+            >
+{{original_text}}</textarea
+            >
+          </div>
+        </div>
+        <div class="output_container">
+          <div class="column">
+            <h2 class="summarize-type">TensorFlow Text Output</h2>
+            <textarea name="summarized_text" rows="6" cols="40" readonly>
+{{ t5_summarized_text }}</textarea
+            >
+          </div>
+          <div class="column">
+            <h2 class="summarize-type">BART Text Output</h2>
+            <textarea name="bart_summarized_text" rows="6" cols="40" readonly>
+{{ bart_summarized_text }}</textarea
+            >
+          </div>
+          <div class="column">
+            <h2 class="summarize-type">TextRank Text Output</h2>
+            <textarea
+              name="textrank_summarized_text"
+              rows="6"
+              cols="40"
+              readonly
+            >
+{{ textrank_summarized_text }}</textarea
+            >
+          </div>
+          <div class="column">
+            <h2 class="summarize-type">Pegasus Text Output</h2>
+            <textarea
+              name="pegasus_summarized_text"
+              rows="6"
+              cols="40"
+              readonly
+            >
+{{ pegasus_summarized_text }}</textarea
+            >
+          </div>
+        </div>
+        <div class="rouge-container">
+          <h2 class="rouge-title">Rouge Scores</h2>
+          <div class="scores">
+            <h4>{{t5_rouge_scores}}</h4>
+            <h4>{{bart_rouge_scores}}</h4>
+            <h4>{{textrank_rouge_scores}}</h4>
+            <h4>{{pegasus_rouge_scores}}</h4>
+          </div>
+        </div>
+      </div>
+      <br />
+    </form>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='script.js')}}"
+    ></script>
+  </body>
+</html>
