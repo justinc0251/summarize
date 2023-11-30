@@ -44,18 +44,25 @@
           </div>
         </div>
         <div class="output_container">
+          <!-- TensorFlow Output -->
           <div class="column">
             <h2 class="summarize-type">TensorFlow Output</h2>
             <textarea name="summarized_text" rows="6" cols="40" readonly>
 {{ t5_summarized_text }}</textarea
             >
+            <h3>Keywords</h3>
+            <p>{{ t5_keywords|join(', ') }}</p>
           </div>
+          <!-- BART Output -->
           <div class="column">
             <h2 class="summarize-type">BART Output</h2>
             <textarea name="bart_summarized_text" rows="6" cols="40" readonly>
 {{ bart_summarized_text }}</textarea
             >
+            <h3>Keywords</h3>
+            <p>{{ bart_keywords|join(', ') }}</p>
           </div>
+          <!-- TextRank Output -->
           <div class="column">
             <h2 class="summarize-type">TextRank Output</h2>
             <textarea
@@ -66,7 +73,10 @@
             >
 {{ textrank_summarized_text }}</textarea
             >
+            <h3>Keywords</h3>
+            <p>{{ textrank_keywords|join(', ') }}</p>
           </div>
+          <!-- Pegasus Output -->
           <div class="column">
             <h2 class="summarize-type">Pegasus Output</h2>
             <textarea
@@ -77,19 +87,25 @@
             >
 {{ pegasus_summarized_text }}</textarea
             >
+            <h3>Keywords</h3>
+            <p>{{ pegasus_keywords|join(', ') }}</p>
           </div>
         </div>
         <div class="rouge-container">
           <h2 class="rouge-title">Rouge Scores</h2>
           <div class="scores">
-            {% if t5_rouge_scores %}<h4>{{ t5_rouge_scores }}</h4>{% endif %}
-            {% if bart_rouge_scores %}<h4>{{ bart_rouge_scores }}</h4>{% endif %}
-            {% if textrank_rouge_scores %}<h4>{{ textrank_rouge_scores }}</h4>{% endif %}
-            {% if pegasus_rouge_scores %}<h4>{{ pegasus_rouge_scores }}</h4>{% endif %}
+            {% if t5_rouge_scores %}
+            <h4>{{ t5_rouge_scores }}</h4>
+            {% endif %} {% if bart_rouge_scores %}
+            <h4>{{ bart_rouge_scores }}</h4>
+            {% endif %} {% if textrank_rouge_scores %}
+            <h4>{{ textrank_rouge_scores }}</h4>
+            {% endif %} {% if pegasus_rouge_scores %}
+            <h4>{{ pegasus_rouge_scores }}</h4>
+            {% endif %}
           </div>
         </div>
       </div>
-      <br />
     </form>
     <script
       type="text/javascript"
