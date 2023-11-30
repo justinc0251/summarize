@@ -22,7 +22,7 @@ h1 {
   margin: 0.5rem 0;
 }
 
-.summarize-type, .rouge-title {
+.summarize-type, .rouge-title, .keyword-title {
   font-size: 18px;
   margin: 2px;
 }
@@ -131,10 +131,14 @@ textarea {
   resize: none;
 }
 
-.scores {
+.scores, .keywords {
   display: flex;
   flex-direction: column;
   margin-top: 1.25rem;
   gap: 4.25rem;
   width: 150px;
+}
+
+.keywords {
+  gap: 5.5rem;
 }
