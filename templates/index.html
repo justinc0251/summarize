@@ -96,13 +96,16 @@
           <h2 class="rouge-title">Rouge Scores</h2>
           <div class="scores">
             {% if t5_rouge_scores %}
-            <h4>{{ t5_rouge_scores }}</h4>
-            {% endif %} {% if bart_rouge_scores %}
-            <h4>{{ bart_rouge_scores }}</h4>
-            {% endif %} {% if textrank_rouge_scores %}
-            <h4>{{ textrank_rouge_scores }}</h4>
-            {% endif %} {% if pegasus_rouge_scores %}
-            <h4>{{ pegasus_rouge_scores }}</h4>
+              <h4>{{ t5_rouge_scores }}</h4>
+            {% endif %} 
+            {% if bart_rouge_scores %}
+              <h4>{{ bart_rouge_scores }}</h4>
+            {% endif %} 
+            {% if textrank_rouge_scores %}
+              <h4>{{ textrank_rouge_scores }}</h4>
+            {% endif %} 
+            {% if pegasus_rouge_scores %}
+              <h4>{{ pegasus_rouge_scores }}</h4>
             {% endif %}
           </div>
         </div>
