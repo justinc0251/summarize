@@ -87,7 +87,7 @@ def summarize_with_pegasus(input_text, length, slider_value):
     summary = pegasus_summarizer.generate(input_ids, max_length=length, min_length=length - 5)
     full_summarized_text = pegasus_tokenizer.decode(summary[0], skip_special_tokens=True)
     sentences = sent_tokenize(full_summarized_text)
-    summarized = " ".join(sentences[:slider_value]).replace("<n>", "").replace(".", " .")
+    summarized = " ".join(sentences[:slider_value]).replace("<n>", "")
     dictionary, corpus = create_lda_corpus(summarized)
     lda_model = train_lda_model(dictionary, corpus)
     pegasus_keywords = extract_keywords(lda_model)
